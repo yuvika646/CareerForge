@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* New Color Palette: Smoky Black #11200D, Olive Drab #565449, Bone #D8CFBC, Floral White #FFFBF4 */
+    --background: 50 60% 98%; /* Floral White #FFFBF4 */
+    --foreground: 90 30% 9%; /* Smoky Black #11200D */
+    --card: 50 60% 98%;
+    --card-foreground: 90 30% 9%;
+    --popover: 50 60% 98%;
+    --popover-foreground: 90 30% 9%;
+    --primary: 50 8% 31%; /* Olive Drab #565449 */
+    --primary-foreground: 50 60% 98%;
+    --secondary: 45 20% 79%; /* Bone #D8CFBC */
+    --secondary-foreground: 90 30% 9%;
+    --muted: 45 20% 79%;
+    --muted-foreground: 50 10% 40%;
+    --accent: 45 20% 79%;
+    --accent-foreground: 90 30% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 50 60% 98%;
+    --border: 45 15% 75%;
+    --input: 45 15% 75%;
+    --ring: 50 8% 31%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 90 30% 9%; /* Smoky Black */
+    --foreground: 50 60% 98%; /* Floral White */
+    --card: 90 25% 12%;
+    --card-foreground: 50 60% 98%;
+    --popover: 90 25% 12%;
+    --popover-foreground: 50 60% 98%;
+    --primary: 50 8% 40%; /* Olive Drab (lighter for dark mode) */
+    --primary-foreground: 90 30% 9%;
+    --secondary: 90 20% 18%;
+    --secondary-foreground: 50 60% 98%;
+    --muted: 90 20% 18%;
+    --muted-foreground: 45 15% 60%;
+    --accent: 90 20% 18%;
+    --accent-foreground: 50 60% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 50 60% 98%;
+    --border: 90 20% 22%;
+    --input: 90 20% 22%;
+    --ring: 50 8% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-size: 14px; /* Smaller base font size */
+  }
+  body {
+    @apply bg-background text-foreground text-sm;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+}
+
+/* Floating Lines Animation */
+@keyframes floatLine {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotation));
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(calc(var(--rotation) + 5deg));
+    opacity: 0.6;
+  }
+}
+
+@keyframes floatLineSlow {
+  0%, 100% {
+    transform: translateX(0) rotate(var(--rotation));
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(30px) rotate(calc(var(--rotation) - 3deg));
+    opacity: 0.5;
+  }
+}
+
+.floating-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+  animation: floatLine var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.floating-line-vertical {
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, hsl(var(--primary)), transparent);
+  animation: floatLineSlow var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* Print styles for PDF */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
