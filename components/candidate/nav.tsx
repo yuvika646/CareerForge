@@ -12,7 +12,8 @@ import {
   LogOut,
   User,
   ChevronDown,
-  Menu
+  Menu,
+  Columns3
 } from "lucide-react"
 import { useState } from "react"
 
@@ -28,6 +29,7 @@ export function CandidateNav({ profile }: CandidateNavProps) {
     { href: "/candidate/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/candidate/resume", label: "Resume Builder", icon: FileText },
     { href: "/candidate/jobs", label: "Find Jobs", icon: Briefcase },
+    { href: "/candidate/tracker", label: "Job Tracker", icon: Columns3 },
   ]
 
   return (

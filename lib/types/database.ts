@@ -150,6 +150,41 @@ export interface Database {
           updated_at?: string
         }
       }
+      applications: {
+        Row: {
+          id: string
+          user_id: string
+          company: string
+          role: string
+          status: 'wishlist' | 'applied' | 'interview' | 'offer' | 'rejected'
+          salary: string | null
+          date_applied: string
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          company: string
+          role: string
+          status?: 'wishlist' | 'applied' | 'interview' | 'offer' | 'rejected'
+          salary?: string | null
+          date_applied?: string
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          company?: string
+          role?: string
+          status?: 'wishlist' | 'applied' | 'interview' | 'offer' | 'rejected'
+          salary?: string | null
+          date_applied?: string
+          created_at?: string
+          updated_at?: string
+        }
+      }
     }
     Views: {
       [_ in never]: never
@@ -167,6 +202,7 @@ export interface Database {
 export type Profile = Database['public']['Tables']['profiles']['Row']
 export type Resume = Database['public']['Tables']['resumes']['Row']
 export type Job = Database['public']['Tables']['jobs']['Row']
+export type ApplicationRow = Database['public']['Tables']['applications']['Row']
 
 // Job with match percentage
 export interface JobWithMatch extends Job {
