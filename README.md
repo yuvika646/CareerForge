@@ -1,5 +1,7 @@
 # CareerForge
 
+**🔗 Live Demo: [career-forge-five.vercel.app](https://career-forge-five.vercel.app/)**
+
 An AI-powered Resume Builder & Job Matching platform built with Next.js, TypeScript, Tailwind CSS, and Supabase. Candidates build ATS-optimized resumes with AI assistance, while recruiters post jobs and find talent through skills-based matching.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
@@ -16,6 +18,7 @@ An AI-powered Resume Builder & Job Matching platform built with Next.js, TypeScr
 - **ATS Scoring** — Real-time Applicant Tracking System compatibility scores (0–100)
 - **PDF Export** — Download resumes as cleanly formatted PDFs
 - **Job Matching** — Discover jobs ranked by skill-match percentage
+- **Job Tracker** — Kanban board to track applications across Wishlist, Applied, Interview, Offer, and Rejected stages
 - **Skill Management** — Track technical and soft skills in one place
 
 ### Recruiters
@@ -86,7 +89,8 @@ CareerForge/
 │   ├── ai.ts                 #   Groq AI integrations
 │   ├── auth.ts               #   Authentication
 │   ├── jobs.ts               #   Job CRUD
-│   └── resume.ts             #   Resume CRUD + ATS scoring
+│   ├── resume.ts             #   Resume CRUD + ATS scoring
+│   └── tracker.ts            #   Job tracker CRUD
 │
 ├── app/                      # Next.js App Router
 │   ├── auth/callback/        #   OAuth callback
@@ -143,6 +147,17 @@ CareerForge/
 | status | `text` | `active`, `closed`, or `draft` |
 | location | `text` | Location |
 | salary_range | `text` | Salary range |
+
+### applications
+| Column | Type | Description |
+|--------|------|-------------|
+| id | `uuid` | Primary key |
+| user_id | `uuid` | FK → profiles |
+| company | `text` | Company name |
+| role | `text` | Job role |
+| status | `text` | `wishlist`, `applied`, `interview`, `offer`, or `rejected` |
+| salary | `text` | Salary (optional) |
+| date_applied | `timestamp` | When added |
 
 ## How It Works
 
