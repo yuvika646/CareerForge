@@ -33,7 +33,7 @@ export function CandidateNav({ profile }: CandidateNavProps) {
   ]
 
   return (
-    <nav className="bg-smoky-black sticky top-0 z-50 shadow-lg border-b border-border/20">
+    <nav className="bg-background sticky top-0 z-50 shadow-sm border-b border-border/40">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -42,14 +42,14 @@ export function CandidateNav({ profile }: CandidateNavProps) {
               <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-olive-drab to-olive-drab/70 flex items-center justify-center shadow-lg shadow-olive-drab/25 group-hover:shadow-olive-drab/40 transition-shadow">
                 <span className="text-floral-white font-bold text-lg">C</span>
               </div>
-              <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 bg-olive-drab rounded-full border-2 border-smoky-black"></div>
+              <div className="absolute -bottom-0.5 -right-0.5 h-3 w-3 bg-olive-drab rounded-full border-2 border-background"></div>
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-semibold tracking-tight">
-                <span className="text-floral-white">Career</span>
-                <span className="text-olive-drab">Forge</span>
+                <span className="text-foreground">Career</span>
+                <span className="text-primary">Forge</span>
               </span>
-              <span className="text-[10px] text-bone/60 -mt-1 tracking-wider uppercase">Build Your Future</span>
+              <span className="text-[10px] text-muted-foreground -mt-1 tracking-wider uppercase">Build Your Future</span>
             </div>
           </Link>
 
@@ -62,11 +62,11 @@ export function CandidateNav({ profile }: CandidateNavProps) {
                   <button
                     className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? "bg-olive-drab/20 text-floral-white"
-                        : "text-bone/70 hover:text-floral-white hover:bg-white/5"
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                     }`}
                   >
-                    <item.icon className={`h-4 w-4 ${isActive ? "text-olive-drab" : ""}`} />
+                    <item.icon className={`h-4 w-4 ${isActive ? "text-primary" : ""}`} />
                     {item.label}
                   </button>
                 </Link>
@@ -76,24 +76,24 @@ export function CandidateNav({ profile }: CandidateNavProps) {
 
           {/* User Menu */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-olive-drab to-olive-drab/70 flex items-center justify-center text-floral-white font-semibold text-sm">
+            <div className="hidden sm:flex items-center gap-3 px-3 py-1.5 rounded-full bg-muted/50 border border-border/60">
+              <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center text-primary-foreground font-semibold text-sm">
                 {(profile.full_name || profile.email || "U").charAt(0).toUpperCase()}
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-medium text-floral-white truncate max-w-[120px]">
+                <span className="text-sm font-medium text-foreground truncate max-w-[120px]">
                   {profile.full_name || "Candidate"}
                 </span>
-                <span className="text-[10px] text-bone/60">Candidate</span>
+                <span className="text-[10px] text-muted-foreground">Candidate</span>
               </div>
-              <ChevronDown className="h-4 w-4 text-bone/60" />
+              <ChevronDown className="h-4 w-4 text-muted-foreground" />
             </div>
             <form action={signOut}>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 type="submit"
-                className="text-bone/60 hover:text-floral-white hover:bg-white/10 rounded-full"
+                className="text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-full"
               >
                 <LogOut className="h-4 w-4" />
               </Button>
@@ -101,7 +101,7 @@ export function CandidateNav({ profile }: CandidateNavProps) {
             
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden p-2 text-bone/60 hover:text-floral-white"
+              className="md:hidden p-2 text-muted-foreground hover:text-foreground"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <Menu className="h-5 w-5" />
@@ -111,7 +111,7 @@ export function CandidateNav({ profile }: CandidateNavProps) {
 
         {/* Mobile Nav */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-white/10 pt-3">
+          <div className="md:hidden pb-4 border-t border-border/40 pt-3">
             <div className="flex flex-col gap-1">
               {navItems.map((item) => {
                 const isActive = pathname === item.href
@@ -120,11 +120,11 @@ export function CandidateNav({ profile }: CandidateNavProps) {
                     <button
                       className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                         isActive
-                          ? "bg-olive-drab/20 text-floral-white"
-                          : "text-bone/70 hover:bg-white/5 hover:text-floral-white"
+                          ? "bg-primary/10 text-primary"
+                          : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                       }`}
                     >
-                      <item.icon className={`h-5 w-5 ${isActive ? "text-olive-drab" : ""}`} />
+                      <item.icon className={`h-5 w-5 ${isActive ? "text-primary" : ""}`} />
                       {item.label}
                     </button>
                   </Link>
