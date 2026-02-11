@@ -89,7 +89,7 @@ export function RecruiterJobList({ jobs }: RecruiterJobListProps) {
     <div className="space-y-4">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           <span className="font-medium">{jobs.length}</span> job{jobs.length !== 1 ? "s" : ""} posted
         </p>
         <Link href="/recruiter/jobs/new">
@@ -116,10 +116,10 @@ export function RecruiterJobList({ jobs }: RecruiterJobListProps) {
                         {job.status}
                       </Badge>
                     </div>
-                    <p className="text-gray-600 mb-2">{job.company}</p>
+                    <p className="text-muted-foreground mb-2">{job.company}</p>
 
                     {/* Job details */}
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-3">
+                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-3">
                       {job.location && (
                         <span className="flex items-center gap-1">
                           <MapPin className="h-4 w-4" />
@@ -139,7 +139,7 @@ export function RecruiterJobList({ jobs }: RecruiterJobListProps) {
                     </div>
 
                     {/* Description preview */}
-                    <p className="text-gray-700 text-sm line-clamp-2 mb-3">
+                    <p className="text-foreground/80 text-sm line-clamp-2 mb-3">
                       {job.description}
                     </p>
 
@@ -184,7 +184,7 @@ export function RecruiterJobList({ jobs }: RecruiterJobListProps) {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="gap-2 text-red-600 hover:text-red-700 hover:bg-red-50"
+                          className="gap-2 text-destructive hover:text-destructive hover:bg-destructive/10"
                         >
                           <Trash2 className="h-4 w-4" />
                           Delete
@@ -222,9 +222,9 @@ export function RecruiterJobList({ jobs }: RecruiterJobListProps) {
       ) : (
         <Card>
           <CardContent className="py-12 text-center">
-            <Briefcase className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+            <Briefcase className="h-12 w-12 mx-auto mb-4 text-muted-foreground/40" />
             <h3 className="font-semibold text-lg mb-2">No jobs posted yet</h3>
-            <p className="text-gray-500 mb-4">
+            <p className="text-muted-foreground mb-4">
               Create your first job posting to start finding candidates
             </p>
             <Link href="/recruiter/jobs/new">

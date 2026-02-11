@@ -86,8 +86,8 @@ export function JobList({ jobs, userSkills }: JobListProps) {
 
   const getMatchColor = (percentage: number) => {
     if (percentage >= 70) return "text-green-600"
-    if (percentage >= 50) return "text-yellow-600"
-    return "text-gray-500"
+    if (percentage >= 50) return "text-amber-600"
+    return "text-muted-foreground"
   }
 
   const getMatchBadge = (percentage: number) => {
@@ -103,7 +103,7 @@ export function JobList({ jobs, userSkills }: JobListProps) {
         <CardContent className="py-4">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search jobs, companies, or skills..."
                 value={searchQuery}
@@ -133,7 +133,7 @@ export function JobList({ jobs, userSkills }: JobListProps) {
             </div>
           </div>
           <div className="flex items-center gap-4 mt-4">
-            <span className="text-sm text-gray-600">Minimum match:</span>
+            <span className="text-sm text-muted-foreground">Minimum match:</span>
             <div className="flex gap-2">
               {[0, 25, 50, 75].map((value) => (
                 <Button
@@ -152,7 +152,7 @@ export function JobList({ jobs, userSkills }: JobListProps) {
 
       {/* Results count */}
       <div className="flex items-center justify-between">
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           Found <span className="font-medium">{filteredJobs.length}</span> jobs
           {searchQuery && ` for "${searchQuery}"`}
         </p>
@@ -175,18 +175,18 @@ export function JobList({ jobs, userSkills }: JobListProps) {
                   <div className="flex items-start justify-between mb-2">
                     <div>
                       <h3 className="text-lg font-semibold">{job.title}</h3>
-                      <p className="text-gray-600">{job.company}</p>
+                      <p className="text-muted-foreground">{job.company}</p>
                     </div>
                     <div className="text-right">
                       <div className={`text-2xl font-bold ${getMatchColor(job.matchPercentage)}`}>
                         {job.matchPercentage}%
                       </div>
-                      <p className="text-xs text-gray-500">Match</p>
+                      <p className="text-xs text-muted-foreground">Match</p>
                     </div>
                   </div>
 
                   {/* Job details */}
-                  <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-3">
+                  <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-3">
                     {job.location && (
                       <span className="flex items-center gap-1">
                         <MapPin className="h-4 w-4" />
@@ -206,7 +206,7 @@ export function JobList({ jobs, userSkills }: JobListProps) {
                   </div>
 
                   {/* Description preview */}
-                  <p className="text-gray-700 text-sm line-clamp-2 mb-3">
+                  <p className="text-foreground/80 text-sm line-clamp-2 mb-3">
                     {job.description}
                   </p>
 
@@ -249,7 +249,7 @@ export function JobList({ jobs, userSkills }: JobListProps) {
                       </DialogHeader>
                       <div className="space-y-4">
                         {/* Match Score */}
-                        <div className="bg-gray-50 p-4 rounded-lg">
+                        <div className="bg-muted/30 p-4 rounded-lg">
                           <div className="flex items-center justify-between mb-2">
                             <span className="font-medium">Your Match Score</span>
                             <span className={`text-xl font-bold ${getMatchColor(job.matchPercentage)}`}>
@@ -262,13 +262,13 @@ export function JobList({ jobs, userSkills }: JobListProps) {
                         {/* Job Details */}
                         <div>
                           <h4 className="font-medium mb-2">Job Description</h4>
-                          <p className="text-gray-700 whitespace-pre-wrap">{job.description}</p>
+                          <p className="text-foreground/80 whitespace-pre-wrap">{job.description}</p>
                         </div>
 
                         {job.salary_range && (
                           <div>
                             <h4 className="font-medium mb-2">Salary Range</h4>
-                            <p className="text-gray-700">{job.salary_range}</p>
+                            <p className="text-foreground/80">{job.salary_range}</p>
                           </div>
                         )}
 
@@ -277,7 +277,7 @@ export function JobList({ jobs, userSkills }: JobListProps) {
                           <h4 className="font-medium mb-2">Required Skills</h4>
                           <div className="space-y-2">
                             <div>
-                              <p className="text-sm text-gray-500 mb-1">
+                              <p className="text-sm text-muted-foreground mb-1">
                                 Skills you have ({job.matchedSkills.length}/{job.required_skills.length})
                               </p>
                               <div className="flex flex-wrap gap-1">
@@ -288,18 +288,18 @@ export function JobList({ jobs, userSkills }: JobListProps) {
                                   </Badge>
                                 ))}
                                 {job.matchedSkills.length === 0 && (
-                                  <span className="text-gray-400 text-sm">None matched</span>
+                                  <span className="text-muted-foreground text-sm">None matched</span>
                                 )}
                               </div>
                             </div>
                             <div>
-                              <p className="text-sm text-gray-500 mb-1">Skills to develop</p>
+                              <p className="text-sm text-muted-foreground mb-1">Skills to develop</p>
                               <div className="flex flex-wrap gap-1">
                                 {job.required_skills
                                   .filter((s) => !job.matchedSkills.includes(s))
                                   .map((skill) => (
                                     <Badge key={skill} variant="outline" className="gap-1">
-                                      <XCircle className="h-3 w-3 text-gray-400" />
+                                      <XCircle className="h-3 w-3 text-muted-foreground" />
                                       {skill}
                                     </Badge>
                                   ))}
@@ -327,9 +327,9 @@ export function JobList({ jobs, userSkills }: JobListProps) {
       {filteredJobs.length === 0 && (
         <Card>
           <CardContent className="py-12 text-center">
-            <Briefcase className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+            <Briefcase className="h-12 w-12 mx-auto mb-4 text-muted-foreground/40" />
             <h3 className="font-semibold text-lg mb-2">No jobs found</h3>
-            <p className="text-gray-500 mb-4">
+            <p className="text-muted-foreground mb-4">
               {searchQuery
                 ? `No jobs match your search for "${searchQuery}"`
                 : "There are no jobs available at the moment."}

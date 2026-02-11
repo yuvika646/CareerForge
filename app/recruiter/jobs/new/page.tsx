@@ -4,8 +4,8 @@ export default function NewJobPage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">Post a New Job</h1>
-        <p className="text-gray-600 mt-1">
+        <h1 className="text-2xl font-semibold text-foreground">Post a New Job</h1>
+        <p className="text-muted-foreground mt-1">
           Create a job listing to find the perfect candidate
         </p>
       </div>

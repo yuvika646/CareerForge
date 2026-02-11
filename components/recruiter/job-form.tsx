@@ -218,7 +218,7 @@ export function JobForm({ initialData, jobId }: JobFormProps) {
               </div>
 
               {formData.required_skills.length === 0 && (
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   Add skills that candidates should have for this role.
                 </p>
               )}
@@ -226,7 +226,7 @@ export function JobForm({ initialData, jobId }: JobFormProps) {
               {/* Suggested skills */}
               {suggestedSkills.length > 0 && (
                 <div>
-                  <p className="text-sm text-gray-500 mb-2">Suggested skills:</p>
+                  <p className="text-sm text-muted-foreground mb-2">Suggested skills:</p>
                   <div className="flex flex-wrap gap-1">
                     {suggestedSkills.slice(0, 8).map((skill) => (
                       <button
@@ -238,7 +238,7 @@ export function JobForm({ initialData, jobId }: JobFormProps) {
                             required_skills: [...prev.required_skills, skill],
                           }))
                         }
-                        className="text-xs px-2 py-1 rounded border border-dashed border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors"
+                        className="text-xs px-2 py-1 rounded-full border border-dashed border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
                       >
                         + {skill}
                       </button>
@@ -257,32 +257,32 @@ export function JobForm({ initialData, jobId }: JobFormProps) {
               <CardTitle>Preview</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="p-4 border rounded-lg bg-gray-50 space-y-4">
+              <div className="p-4 border border-border/50 rounded-xl bg-muted/30 space-y-4">
                 <div>
                   <h3 className="text-lg font-semibold">
                     {formData.title || "Job Title"}
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-muted-foreground">
                     {formData.company || "Company Name"}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2 text-sm text-gray-600">
+                <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
                   {formData.location && (
-                    <span className="bg-gray-100 px-2 py-1 rounded">
-                      📍 {formData.location}
+                    <span className="bg-muted/50 px-2 py-1 rounded-full">
+                      {formData.location}
                     </span>
                   )}
                   {formData.salary_range && (
-                    <span className="bg-gray-100 px-2 py-1 rounded">
-                      💰 {formData.salary_range}
+                    <span className="bg-muted/50 px-2 py-1 rounded-full">
+                      {formData.salary_range}
                     </span>
                   )}
                 </div>
 
                 <div>
                   <h4 className="font-medium text-sm mb-1">Description</h4>
-                  <p className="text-sm text-gray-700 whitespace-pre-wrap">
+                  <p className="text-sm text-foreground/80 whitespace-pre-wrap">
                     {formData.description || "No description provided..."}
                   </p>
                 </div>

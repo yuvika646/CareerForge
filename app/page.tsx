@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { FileText, Briefcase, Sparkles, Target } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { FileText, Briefcase } from "lucide-react"
 import { createClient } from "@/lib/supabase/server"
 
 // Floating Lines Background Component
@@ -146,61 +146,41 @@ export default async function Home() {
 
       {/* Features Section */}
       <section className="container mx-auto px-4 py-20 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
+        <p className="text-xs uppercase tracking-widest text-muted-foreground text-center mb-3">What we offer</p>
+        <h2 className="text-3xl font-bold text-center mb-4 text-foreground">
           Everything You Need to Succeed
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="bg-card/80 backdrop-blur-sm border-border hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                <FileText className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle>Smart Resume Builder</CardTitle>
-              <CardDescription>
-                Create professional resumes with our intuitive builder and
-                real-time preview.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+        <p className="text-muted-foreground text-center max-w-lg mx-auto mb-14 text-sm">
+          Four powerful tools, one platform. Built to give you an unfair advantage in your job search.
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div tabIndex={0} className="feature-card group bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6">
+            <h3 className="text-base font-semibold text-foreground mb-2">Smart Resume Builder</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Create professional resumes with an intuitive builder and real-time PDF preview.
+            </p>
+          </div>
 
-          <Card className="bg-card/80 backdrop-blur-sm border-border hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                <Sparkles className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle>AI Enhancement</CardTitle>
-              <CardDescription>
-                Let AI polish your descriptions and suggest improvements for
-                maximum impact.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <div tabIndex={0} className="feature-card group bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6">
+            <h3 className="text-base font-semibold text-foreground mb-2">AI Enhancement</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Let AI polish your descriptions and suggest improvements for maximum impact.
+            </p>
+          </div>
 
-          <Card className="bg-card/80 backdrop-blur-sm border-border hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                <Target className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle>ATS Score</CardTitle>
-              <CardDescription>
-                Get real-time ATS compatibility scores to ensure your resume
-                passes screening systems.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <div tabIndex={0} className="feature-card group bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6">
+            <h3 className="text-base font-semibold text-foreground mb-2">ATS Scoring</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Get real-time ATS compatibility scores to ensure your resume passes screening systems.
+            </p>
+          </div>
 
-          <Card className="bg-card/80 backdrop-blur-sm border-border hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4">
-                <Briefcase className="h-6 w-6 text-primary" />
-              </div>
-              <CardTitle>Job Matching</CardTitle>
-              <CardDescription>
-                Find perfect job matches based on your skills with our
-                intelligent matching algorithm.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <div tabIndex={0} className="feature-card group bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6">
+            <h3 className="text-base font-semibold text-foreground mb-2">Job Matching</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Find perfect job matches based on your skills with an intelligent matching algorithm.
+            </p>
+          </div>
         </div>
       </section>
 

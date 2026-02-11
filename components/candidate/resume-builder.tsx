@@ -271,7 +271,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
               <div className="flex-1 mr-4">
                 <div className="flex justify-between text-sm mb-1">
                   <span className="font-medium">ATS Score</span>
-                  <span className={atsScore >= 70 ? "text-green-600" : atsScore >= 50 ? "text-yellow-600" : "text-red-600"}>
+                  <span className={atsScore >= 70 ? "text-green-600" : atsScore >= 50 ? "text-amber-600" : "text-destructive"}>
                     {atsScore}%
                   </span>
                 </div>
@@ -424,7 +424,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                         )
                       }
                       disabled={isEnhancing === "summary" || !content.summary}
-                      className="gap-1 text-purple-600 hover:text-purple-700"
+                      className="gap-1 text-primary hover:text-primary/80"
                     >
                       {isEnhancing === "summary" ? (
                         <Loader2 className="h-3 w-3 animate-spin" />
@@ -542,7 +542,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                             )
                           }
                           disabled={isEnhancing === "experience" || !exp.description}
-                          className="gap-1 text-purple-600 hover:text-purple-700"
+                          className="gap-1 text-primary hover:text-primary/80"
                         >
                           {isEnhancing === "experience" ? (
                             <Loader2 className="h-3 w-3 animate-spin" />
@@ -562,7 +562,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                   </div>
                 ))}
                 {content.experience.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <Briefcase className="h-12 w-12 mx-auto mb-3 opacity-50" />
                     <p>No work experience added yet.</p>
                     <Button variant="link" onClick={addExperience}>
@@ -648,7 +648,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                   </div>
                 ))}
                 {content.education.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <GraduationCap className="h-12 w-12 mx-auto mb-3 opacity-50" />
                     <p>No education added yet.</p>
                     <Button variant="link" onClick={addEducation}>
@@ -695,7 +695,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                   ))}
                 </div>
                 {content.skills.length === 0 && (
-                  <p className="text-center text-gray-500 py-4">
+                  <p className="text-center text-muted-foreground py-4">
                     No skills added yet. Start typing to add skills.
                   </p>
                 )}
@@ -762,7 +762,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                             )
                           }
                           disabled={isEnhancing === "project" || !proj.description}
-                          className="gap-1 text-purple-600 hover:text-purple-700"
+                          className="gap-1 text-primary hover:text-primary/80"
                         >
                           {isEnhancing === "project" ? (
                             <Loader2 className="h-3 w-3 animate-spin" />
@@ -794,7 +794,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                   </div>
                 ))}
                 {content.projects.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <FolderKanban className="h-12 w-12 mx-auto mb-3 opacity-50" />
                     <p>No projects added yet.</p>
                     <Button variant="link" onClick={addProject}>
@@ -864,7 +864,7 @@ export function ResumeBuilder({ initialResume }: ResumeBuilderProps) {
                   </div>
                 ))}
                 {content.certifications.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <Award className="h-12 w-12 mx-auto mb-3 opacity-50" />
                     <p>No certifications added yet.</p>
                     <Button variant="link" onClick={addCertification}>

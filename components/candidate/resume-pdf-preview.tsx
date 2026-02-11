@@ -304,15 +304,15 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
       </div>
 
       {showPreview && (
-        <div className="bg-white border rounded-lg p-6 shadow-sm max-h-[600px] overflow-y-auto text-sm">
+        <div className="bg-card border border-border/50 rounded-xl p-6 shadow-sm max-h-[600px] overflow-y-auto text-sm">
           {/* Preview Header */}
           <div className="text-center mb-6">
             {content.personalInfo.fullName && (
-              <h1 className="text-2xl font-bold text-blue-900">
+              <h1 className="text-2xl font-bold text-foreground">
                 {content.personalInfo.fullName}
               </h1>
             )}
-            <p className="text-gray-600 text-xs">
+            <p className="text-muted-foreground text-xs">
               {[
                 content.personalInfo.email,
                 content.personalInfo.phone,
@@ -322,7 +322,7 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
                 .join(" | ")}
             </p>
             {(content.personalInfo.linkedin || content.personalInfo.website) && (
-              <p className="text-gray-600 text-xs">
+              <p className="text-muted-foreground text-xs">
                 {[content.personalInfo.linkedin, content.personalInfo.website]
                   .filter(Boolean)
                   .join(" | ")}
@@ -336,7 +336,7 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
               <h2 className="text-sm font-bold text-primary border-b border-primary pb-1 mb-2">
                 PROFESSIONAL SUMMARY
               </h2>
-              <p className="text-gray-700 text-xs leading-relaxed">{content.summary}</p>
+              <p className="text-foreground/80 text-xs leading-relaxed">{content.summary}</p>
             </div>
           )}
 
@@ -351,18 +351,18 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
                   <div className="flex justify-between">
                     <div>
                       <p className="font-semibold">{exp.title}</p>
-                      <p className="text-gray-600 text-xs">
+                      <p className="text-muted-foreground text-xs">
                         {exp.company}
                         {exp.location && ` - ${exp.location}`}
                       </p>
                     </div>
-                    <p className="text-gray-500 text-xs">
+                    <p className="text-muted-foreground text-xs">
                       {formatDate(exp.startDate)} -{" "}
                       {exp.current ? "Present" : formatDate(exp.endDate)}
                     </p>
                   </div>
                   {exp.description && (
-                    <p className="text-gray-700 text-xs mt-1">{exp.description}</p>
+                    <p className="text-foreground/80 text-xs mt-1">{exp.description}</p>
                   )}
                 </div>
               ))}
@@ -380,12 +380,12 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
                   <div className="flex justify-between">
                     <div>
                       <p className="font-semibold">{edu.degree}</p>
-                      <p className="text-gray-600 text-xs">
+                      <p className="text-muted-foreground text-xs">
                         {edu.school}
                         {edu.gpa && ` | GPA: ${edu.gpa}`}
                       </p>
                     </div>
-                    <p className="text-gray-500 text-xs">{formatDate(edu.graduationDate)}</p>
+                    <p className="text-muted-foreground text-xs">{formatDate(edu.graduationDate)}</p>
                   </div>
                 </div>
               ))}
@@ -402,7 +402,7 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
                 {content.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs"
+                    className="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs"
                   >
                     {skill}
                   </span>
@@ -426,10 +426,10 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
                     )}
                   </p>
                   {proj.description && (
-                    <p className="text-gray-700 text-xs">{proj.description}</p>
+                    <p className="text-foreground/80 text-xs">{proj.description}</p>
                   )}
                   {proj.technologies.length > 0 && (
-                    <p className="text-gray-500 text-xs italic">
+                    <p className="text-muted-foreground text-xs italic">
                       Technologies: {proj.technologies.join(", ")}
                     </p>
                   )}
@@ -450,7 +450,7 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
                     {cert.name}
                     {cert.date && ` (${formatDate(cert.date)})`}
                   </p>
-                  {cert.issuer && <p className="text-gray-600 text-xs">{cert.issuer}</p>}
+                  {cert.issuer && <p className="text-muted-foreground text-xs">{cert.issuer}</p>}
                 </div>
               ))}
             </div>
@@ -460,7 +460,7 @@ export function ResumePDFPreview({ content }: { content: ResumeContent }) {
           {!content.personalInfo.fullName &&
             !content.summary &&
             content.experience.length === 0 && (
-              <div className="text-center py-12 text-gray-400">
+              <div className="text-center py-12 text-muted-foreground/50">
                 <p>Start filling in your information</p>
                 <p className="text-sm">to see your resume preview here</p>
               </div>
