@@ -55,9 +55,7 @@ npm install
 
 1. Create a new project at [supabase.com](https://supabase.com)
 2. Open the **SQL Editor** in your dashboard
-3. Run the migration in `supabase/migrations/001_initial_schema.sql`
-
-This creates the `profiles`, `resumes`, and `jobs` tables along with Row Level Security policies and triggers.
+3. Create the required tables (`profiles`, `resumes`, `jobs`) with Row Level Security policies — refer to the Database Schema section below
 
 ### 3. Configure Environment Variables
 
@@ -110,7 +108,6 @@ CareerForge/
 │   ├── resume-defaults.ts    # Default resume template
 │   └── utils.ts              # Utility functions
 │
-├── supabase/migrations/      # SQL migration scripts
 ├── middleware.ts              # Auth & role-based route protection
 └── tailwind.config.ts        # Custom theme (color palette)
 ```
